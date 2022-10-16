@@ -1,37 +1,26 @@
-// function Generate() {
-//     var char = prompt("How many characters? min:8, max:15");
-//     var special = prompt("Any special characters?(yes/no)");
+///////////////////////// DO NOT CHANGE ////////////////////////////////////
+// Assignment Code
+var generateBtn = document.querySelector("#generate");
 
-//     if (char != null) {
-//         if (special != null) {
-//         document.getElementById("x").innerHTML = Math.floor(Math.random() * char) + 1;
-//     }
-// }
-// }
+// Write password to the #password input
+function writePassword() {
+    var password = generatePassword();
+    var passwordText = document.querySelector("#password");
+    passwordText.value = password;
+}
 
-
-// function makePassword(length) {
-//     var result = " ";
-//     var characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-//     var specialCharacters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789~!@#$%&*";
-//     var charactersLength = characters.length;
-//     var specialCharactersLength = specialCharacters.length;
-//     for ( var i = 0; i < length; i++ ) {
-//         result += specialCharacters.charAt(Math.floor(Math.random() * specialCharactersLength));
-// }
-// return result;
-// }
-
-// document.getElementById("x").innerHTML = (makePassword(15));
+// Add event listener to generate button
+generateBtn.addEventListener("click", writePassword);
+///////////////////////// DO NOT CHANGE ABOVE HERE /////////////////////////
 
 
-function Generate() {
+function generatePassword() {
     var char = prompt("How many characters? min:8, max:15");
-    var special = confirm("Any special characters?(yes/no)");
+    var special = confirm("Any special characters?(yes = OK/no = cancel)");
 
     if (char >= 8 && char < 16) {
-        if (special) {
-            function makePassword(length) {
+        if (special === true) {
+            function generatePassword(length) {
                 var result = " ";
                 var specialCharacters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789~!@#$%&*";
                 var specialCharactersLength = specialCharacters.length;
@@ -40,7 +29,20 @@ function Generate() {
             }
             return result;
             }
-            document.getElementById("x").innerHTML = (makePassword(char));
+            // document.getElementById("#password").innerHTML = (generatePassword(char));
+        } else {
+            function generatePassword(length) {
+                var result = " ";
+                var characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+                var charactersLength = characters.length;
+                for ( var i = 0; i < length; i++ ) {
+                    result += characters.charAt(Math.floor(Math.random() * charactersLength));
+            }
+            return result;
+            }
+            // document.getElementById("#password").innerHTML = (generatePassword(char));
+        }
     }
-}
+
+    if (char < 8 && char > 15) {}
 }

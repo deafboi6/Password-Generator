@@ -1,49 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Password Generator</title>
+    <link rel="stylesheet" href="style.css" />
 </head>
-
-<!-- <body>
-    <h1 style="Text-align:center">Password Generator!</h1>
-
-    <p style="Text-align:center">
-        How many characters do you want in your password?
-        <input type="text">
-    </p>
-    
-    <p style="Text-align:center">
-    Any special characters? 
-    <input type="text">
-    </p>
-
-    <p style="Text-align:center"><input type="text"></p>
-    <div style="Text-align:center"><button type="button">Generate!</button></div>
-</body> -->
-
-<!-- <body>
-    <h1 style="Text-align:center">Password Generator!</h1>
-
-    <form style="Text-align:center">
-        <label>How many characters? (min:8, max:25) <input type="text"></label><br>
-        <label>Do you want special characters? (yes/no) <input type="text"></label><br>
-        <button type="button">Generate!</button>
-    </form>
-
-    <div style="Text-align:center"><input type="text"></div>
-</body> -->
-
-<body style="Text-align:center">
-    <h1>Password Generator!</h1>
-
-<button onclick="Generate()">
-    Generate Password!
-</button>
-<p id="x"></p>
-
-<script src="script.js"></script>
-
+<body>
+    <div class="wrapper">
+    <header>
+        <h1>Password Generator</h1>
+    </header>
+    <div class="card">
+        <div class="card-header">
+        <h2>Generate a Password</h2>
+        </div>
+        <div class="card-body">
+        <textarea
+            readonly
+            id="password"
+            placeholder="Your Secure Password"
+            aria-label="Generated Password"
+        ></textarea>
+        </div>
+        <div class="card-footer">
+        <button id="generate" class="btn">Generate Password</button>
+        </div>
+    </div>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>
