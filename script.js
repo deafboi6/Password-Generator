@@ -16,33 +16,34 @@ generateBtn.addEventListener("click", writePassword);
 
 function generatePassword() {
     var char = prompt("How many characters? min:8, max:15");
-    var special = confirm("Any special characters?(yes = OK/no = cancel)");
 
-    if (char >= 8 && char < 16) {
-        if (special === true) {
-            function generatePassword(length) {
-                var result = " ";
-                var specialCharacters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789~!@#$%&*";
-                var specialCharactersLength = specialCharacters.length;
-                for ( var i = 0; i < length; i++ ) {
-                    result += specialCharacters.charAt(Math.floor(Math.random() * specialCharactersLength));
-            }
-            return result;
-            }
-            // document.getElementById("#password").innerHTML = (generatePassword(char));
+    if (char >= 8 && char <= 128) {
+        var special = confirm("Any special characters?(yes = OK/no = cancel)");
+        if (special) {
+            return makePasswordSpecial(char);
         } else {
-            function generatePassword(length) {
-                var result = " ";
-                var characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-                var charactersLength = characters.length;
-                for ( var i = 0; i < length; i++ ) {
-                    result += characters.charAt(Math.floor(Math.random() * charactersLength));
-            }
-            return result;
-            }
-            // document.getElementById("#password").innerHTML = (generatePassword(char));
+            return makePassword(char);
         }
+    } else {
+        alert("Must choose between 8 and 128 characters!!");
     }
+}
 
-    if (char < 8 && char > 15) {}
+function makePasswordSpecial(length) {
+    var result = "";
+    var specialCharacters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789~!@#$%&*";
+    var specialCharactersLength = specialCharacters.length;
+    for (var i = 0; i < length; i++) {
+        result += specialCharacters.charAt(Math.floor(Math.random() * specialCharactersLength));
+    }
+    return result;
+}
+function makePassword(length) {
+    var result = "";
+    var characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    var charactersLength = characters.length;
+    for (var i = 0; i < length; i++) {
+        result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    }
+    return result;
 }
