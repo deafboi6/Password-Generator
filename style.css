@@ -118,6 +118,9 @@ button[disabled] {
     overflow: hidden;
 }
 
+h2 {
+    text-align: center;
+}
 @media (max-width: 690px) {
     .btn {
     font-size: 1rem;
